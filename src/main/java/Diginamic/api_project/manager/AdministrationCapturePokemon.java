@@ -46,6 +46,7 @@ public class AdministrationCapturePokemon {
 			System.out.println("1 - capture");
 			System.out.println("2 - afficher équipe");
 			System.out.println("3 - supprimer équipe");
+			System.out.println("4 - modifier équipe");
 			System.out.println("0 - sortir");
 
 			String choix = sc.nextLine();
@@ -59,11 +60,37 @@ public class AdministrationCapturePokemon {
 			case "3":
 				supprimerEquipe();
 				break;
+			case "4":
+				modifierEquipe();
+				break;
 			default:
 				continuer = false;
 			}
 		}
 
+	}
+
+	/**
+	 * permet de modifier une équipe
+	 */
+	private void modifierEquipe() {
+		System.out.println("id:");
+		Integer id = Integer.parseInt(sc.nextLine());
+		System.out.println("pokemon 1:");
+		Pokemon pokemon1 = new Pokemon(sc.nextLine());
+		System.out.println("pokemon 2:");
+		Pokemon pokemon2 = new Pokemon(sc.nextLine());
+		System.out.println("pokemon 3:");
+		Pokemon pokemon3 = new Pokemon(sc.nextLine());
+		System.out.println("pokemon 4:");
+		Pokemon pokemon4 = new Pokemon(sc.nextLine());
+		System.out.println("pokemon 5:");
+		Pokemon pokemon5 = new Pokemon(sc.nextLine());
+		System.out.println("pokemon 6:");
+		Pokemon pokemon6 = new Pokemon(sc.nextLine());
+
+		Equipe equipe = new Equipe(id, pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6);
+		pokemonDao.editerEquipe(equipe);
 	}
 
 	/**
@@ -112,7 +139,9 @@ public class AdministrationCapturePokemon {
 				System.out.println();
 			}
 		}
-		pokemonDao.ajouterEquipe(listePokemon);
+		Equipe equipe = new Equipe(null, listePokemon.get(0), listePokemon.get(1), listePokemon.get(2), listePokemon
+				.get(3), listePokemon.get(4), listePokemon.get(5));
+		pokemonDao.ajouterEquipe(equipe);
 		System.out.println("la chasse est fini, vous pourrez retrouver votre équipe dans le PokeCentre");
 
 	}

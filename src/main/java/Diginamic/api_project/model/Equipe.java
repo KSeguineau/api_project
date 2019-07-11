@@ -173,4 +173,23 @@ public class Equipe {
 		this.pokemon6 = pokemon6;
 	}
 
+	/**
+	 * Getter
+	 * 
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * Setters
+	 * 
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 }
